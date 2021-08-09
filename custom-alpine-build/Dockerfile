@@ -1,4 +1,4 @@
-FROM openshift/python:3.6
+FROM python:3.6.14-alpine3.14
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 ## RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /tmp/pirla.txt
