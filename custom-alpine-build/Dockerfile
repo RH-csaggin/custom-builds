@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel7/rhel-atomic
+FROM registry.access.redhat.com/rhscl/python-36-rhel7
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /myvol/pirla.txt
