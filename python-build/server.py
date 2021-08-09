@@ -1,3 +1,5 @@
+#To be used in OCP a secrent need to be created for pulling see https://access.redhat.com/articles/3399531
+
 import SimpleHTTPServer
 import SocketServer
 
