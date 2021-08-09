@@ -1,5 +1,5 @@
 FROM python:3-alpine
-MAINTAINER Kris <csaggin@redhat.com>
+LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /myvol/pirla.txt
 VOLUME /myvol
