@@ -1,5 +1,5 @@
 FROM registry.access.redhat.com/ubi8/ubi
-ENV ServerName=HTTPDTEST
+ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
 RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos httpd -y && rm -rf /var/cache/yum
