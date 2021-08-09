@@ -1,4 +1,4 @@
-FROM image-registry.openshift-image-registry.svc:5000/openshift/python
+FROM registry.access.redhat.com/ubi8/s2i-base
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 ## RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /tmp/pirla.txt
