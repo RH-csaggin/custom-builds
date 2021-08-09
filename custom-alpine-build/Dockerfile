@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/s2i-base
+FROM registry.access.redhat.com/rhel7/rhel-atomic:7.9-438
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 ## RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /tmp/pirla.txt
