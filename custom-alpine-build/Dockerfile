@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel7/rhel-atomic@sha256:7df32b274b8ca09e799964ca40bc6f3678542cafaa71f9ae9983f6afbad99e06
+FROM registry.access.redhat.com/rhel7/rhel-atomic:7.9-438
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 ## RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /tmp/pirla.txt
