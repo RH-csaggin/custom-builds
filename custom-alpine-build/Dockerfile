@@ -6,5 +6,6 @@ WORKDIR /tmp
 ENV PYTHONUNBUFFERED=1
 ## RUN adduser kris -D ## For testing
 ADD https://raw.githubusercontent.com/RH-csaggin/git-test/main/index.html /var/www/html/
+RUN chown -R 755 /var/www/html/
 EXPOSE 8080
 ENTRYPOINT [ "python", "-m", "http.server", "8080" ]
