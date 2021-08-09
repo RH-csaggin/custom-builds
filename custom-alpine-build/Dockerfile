@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM image-registry.openshift-image-registry.svc:5000/openshift/python
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 ## RUN mkdir /myvol
 RUN echo "Bravo Pirla" > /tmp/pirla.txt
