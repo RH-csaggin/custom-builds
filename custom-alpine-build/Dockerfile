@@ -1,8 +1,7 @@
 FROM registry.access.redhat.com/rhscl/python-36-rhel7
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
-RUN mkdir /myvol
-RUN echo "Bravo Pirla" > /myvol/pirla.txt
-VOLUME /myvol
+## RUN mkdir /myvol
+RUN echo "Bravo Pirla" > /tmp/pirla.txt
 WORKDIR /tmp
 ENV PYTHONUNBUFFERED=1
 ## RUN adduser kris -D ## For testing
