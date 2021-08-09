@@ -6,6 +6,6 @@ VOLUME /myvol
 WORKDIR /tmp
 ENV PYTHONUNBUFFERED=1
 RUN adduser kris -D
-ADD https://raw.githubusercontent.com/RH-csaggin/s2i-py-test/main/index.html /tmp/
+ADD https://raw.githubusercontent.com/RH-csaggin/git-test/main/index.html /tmp/
 EXPOSE 80
 ENTRYPOINT [ "python", "-m", "http.server", "80" ]
