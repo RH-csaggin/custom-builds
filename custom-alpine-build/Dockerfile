@@ -6,5 +6,5 @@ WORKDIR /tmp
 ENV PYTHONUNBUFFERED=1
 ## RUN adduser kris -D ## For testing
 ADD https://raw.githubusercontent.com/RH-csaggin/git-test/main/index.html /tmp/
-EXPOSE 80
-ENTRYPOINT [ "python", "-m", "http.server", "80" ]
+EXPOSE 8080
+ENTRYPOINT [ "python", "-m", "http.server", "8080" ]
