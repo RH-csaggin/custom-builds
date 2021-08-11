@@ -5,8 +5,8 @@ import SocketServer
 
 class MyRequestHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
-        if self.path == '/tmp':
-            self.path = '/tmp/your_file.html'
+        if self.path == '/':
+            self.path = 'your_file.html'
         return SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
 
 Handler = MyRequestHandler
