@@ -1,5 +1,5 @@
 #Acctually working only on podman due to OCP scc see https://access.redhat.com/solutions/2111281
-FROM rhel7
+FROM registry.access.redhat.com/rhel7/rhel
 ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN yum -y update; yum clean all
