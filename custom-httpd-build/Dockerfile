@@ -1,20 +1,11 @@
 #Acctually working only on podman due to OCP scc see https://access.redhat.com/solutions/2111281
-FROM kris-test/httpd-24-centos7:latest
+FROM registry.access.redhat.com/ubi8/ubi
 ENV SERVER_NAME=HTTPDTEST
-ENV SSLProtocol=false
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
-USER root
-RUN yum update-minimal --security  -y && rm -rf /var/cache/yum
-RUN rm -rf /etc/httpd
-RUN yum install httpd24-httpd -y && \
-    yum install epel-release -y && \
-    yum install certbot certbot-apache -y && \
-    rm -rf /var/cache/yum
+RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
+RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos httpd -y && rm -rf /var/cache/yum
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
-RUN chmod 755 /var/www/html/index.html && \
-    scl enable httpd24 bash && \
-    rm -f /etc/httpd/conf.d/ssl.conf
-#    certbot --apache --agree-tos  --non-interactive --email csaggin@redhat.com --domains "dummy-domain.net"
+RUN chmod 755 /var/www/html/index.html
+RUN mv /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.backup
 EXPOSE 80
-CMD sleep 3600
-#ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
