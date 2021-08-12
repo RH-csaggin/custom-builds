@@ -12,8 +12,8 @@ RUN yum install httpd24-httpd -y && \
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
 RUN chmod 755 /var/www/html/index.html && \
     scl enable httpd24 bash && \
-    rm -f /etc/httpd/conf.d/ssl.conf && \
-    certbot-auto --apache
+    rm -f /etc/httpd/conf.d/ssl.conf
+    # certbot-auto --apache
 EXPOSE 80
-#CMD sleep 3600
-ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD sleep 3600
+#ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
