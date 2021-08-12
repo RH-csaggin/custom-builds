@@ -6,4 +6,4 @@ WORKDIR /tmp
 ## RUN adduser kris -D ## For testing
 ADD https://raw.githubusercontent.com/RH-csaggin/git-test/main/index.html /tmp
 EXPOSE 8080
-CMD [ "python", "-m", "http.server", "8080"]
+ENTRYPOINT [ "python", "-m", "http.server", "8080"]
