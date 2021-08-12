@@ -16,5 +16,5 @@ RUN chmod 755 /var/www/html/index.html && \
     rm -f /etc/httpd/conf.d/ssl.conf
 #    certbot --apache --agree-tos  --non-interactive --email csaggin@redhat.com --domains "dummy-domain.net"
 EXPOSE 80
-#CMD sleep 3600
-ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD sleep 3600
+#ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
