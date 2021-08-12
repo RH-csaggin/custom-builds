@@ -7,7 +7,6 @@ RUN yum update-minimal --security  -y && rm -rf /var/cache/yum
 RUN yum install httpd24-httpd -y && rm -rf /var/cache/yum
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
 RUN chmod 755 /var/www/html/index.html && \
-    scl enable httpd24 bash && \
-    service httpd24-httpd start
+    scl enable httpd24 bash
 EXPOSE 80
 ENTRYPOINT ["httpd", "-D", "FOREGROUND"]
