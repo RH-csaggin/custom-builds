@@ -2,8 +2,8 @@
 FROM registry.access.redhat.com/rhel7/rhel
 ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
-RUN yum -y update; yum clean all
-RUN yum -y install httpd; yum clean all
+RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=rhel-7-server-rpms -y && rm -rf /var/cache/yum
+RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=rhel-7-server-rpms -y && rm -rf /var/cache/yum
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
 RUN chmod 755 /var/www/html/index.html
 EXPOSE 80
