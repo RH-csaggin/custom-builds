@@ -13,7 +13,7 @@ ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-htt
 RUN chmod 755 /var/www/html/index.html && \
     scl enable httpd24 bash && \
     rm -f /etc/httpd/conf.d/ssl.conf && \
-    certbot --apache
+    certbot certonly -a standalone --apache --agree-tos  --non-interactive --email csaggin@redhat.com --domains "dummy-domain.net"
 EXPOSE 80
 #CMD sleep 3600
 ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
