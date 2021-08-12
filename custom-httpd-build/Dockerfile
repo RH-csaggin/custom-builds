@@ -1,5 +1,5 @@
 #Acctually working only on podman due to OCP scc see https://access.redhat.com/solutions/2111281
-FROM registry.access.redhat.com/rhel7/rhel
+FROM centos:centos7
 ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN yum update --disablerepo=*  --enablerepo=rhel-7-server-rpms -y && rm -rf /var/cache/yum
