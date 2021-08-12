@@ -1,5 +1,5 @@
 #Acctually working only on podman due to OCP scc see https://access.redhat.com/solutions/2111281
-FROM centos:centos7
+FROM kris-test/httpd-24-centos7:latest
 ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 RUN yum update -y && rm -rf /var/cache/yum
