@@ -1,6 +1,7 @@
 #Acctually working only on podman due to OCP scc see https://access.redhat.com/solutions/2111281
 FROM kris-test/httpd-24-centos7:latest
 ENV SERVER_NAME=HTTPDTEST
+ENV SSLProtocol=false
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 USER root
 RUN yum update-minimal --security  -y && rm -rf /var/cache/yum
@@ -12,8 +13,8 @@ RUN yum install httpd24-httpd -y && \
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
 RUN chmod 755 /var/www/html/index.html && \
     scl enable httpd24 bash && \
-    rm -f /etc/httpd/conf.d/ssl.conf && \
-    certbot --apache --agree-tos  --non-interactive --email csaggin@redhat.com --domains "dummy-domain.net"
+    rm -f /etc/httpd/conf.d/ssl.conf
+#    certbot --apache --agree-tos  --non-interactive --email csaggin@redhat.com --domains "dummy-domain.net"
 EXPOSE 80
 #CMD sleep 3600
 ENTRYPOINT ["/opt/rh/httpd24/root/usr/sbin/httpd", "-D", "FOREGROUND"]
