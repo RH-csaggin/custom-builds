@@ -4,7 +4,7 @@ ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 USER root
 RUN yum update-minimal --security  -y && rm -rf /var/cache/yum
-RUN rm /etc/httpd
+RUN rm -rf /etc/httpd
 RUN yum install httpd24-httpd -y && \
     yum install epel-release -y && \
     yum install certbot certbot-apache -y && \
