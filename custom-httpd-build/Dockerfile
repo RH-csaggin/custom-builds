@@ -9,4 +9,5 @@ ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-htt
 RUN chmod 755 /var/www/html/index.html && \
     scl enable httpd24 bash
 EXPOSE 80
-ENTRYPOINT ["/etc/init.d/httpd", "-D", "FOREGROUND"]
+CMD sleep 3600
+#ENTRYPOINT ["/etc/init.d/httpd", "-D", "FOREGROUND"]
