@@ -4,9 +4,10 @@ ENV SERVER_NAME=HTTPDTEST
 LABEL Mantainer="csaggin" email=csaggin@redhat.com
 USER root
 RUN yum update-minimal --security  -y && rm -rf /var/cache/yum
+RUN yum remove httpd
 RUN yum install httpd24-httpd -y && \
     yum install epel-release -y && \
-    yum install certbot python2-certbot-apache -y && \
+    yum install certbot certbot-apache -y && \
     rm -rf /var/cache/yum
 ADD https://raw.githubusercontent.com/RH-csaggin/custom-builds/master/custom-httpd-build/index.html /var/www/html/index.html
 RUN chmod 755 /var/www/html/index.html && \
